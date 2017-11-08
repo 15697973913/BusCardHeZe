@@ -69,8 +69,8 @@ public class AutoStartBroadcastService extends Service {
                         }
                         ishavasd = file.exists();
                         Log.v(TAG, "ishavasd:" + ishavasd);
-                        String sdapkpath = USBPATH + "/Apk/BusCardXiAn.apk";
-                        String bdapkpath = BENDIPATH + "/Apk/BusCardXiAn.apk";
+                        String sdapkpath = USBPATH + "/Apk/BusCardHeZe.apk";
+                        String bdapkpath = BENDIPATH + "/Apk/BusCardHeZe.apk";
                         File filejia = new File(BENDIPATH + "/Apk");
                         if (!filejia.exists()) {
                             filejia.mkdirs();
@@ -118,8 +118,8 @@ public class AutoStartBroadcastService extends Service {
                         }
                         ishavasd = file1.exists();
                         Log.v(TAG, "ishavasd:" + ishavasd);
-                        String sdapkpath1 = USBPATH + "/Apk/BusCardXiAn.apk";
-                        String bdapkpath1 = BENDIPATH + "/Apk/BusCardXiAn.apk";
+                        String sdapkpath1 = USBPATH + "/Apk/BusCardHeZe.apk";
+                        String bdapkpath1 = BENDIPATH + "/Apk/BusCardHeZe.apk";
                         File filejia1 = new File(BENDIPATH + "/Apk");
                         if (!filejia1.exists()) {
                             filejia1.mkdirs();

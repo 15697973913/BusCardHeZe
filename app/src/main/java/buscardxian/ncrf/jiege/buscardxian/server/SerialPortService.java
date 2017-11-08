@@ -32,10 +32,6 @@ public class SerialPortService extends Service {
 	private String TAG = "SerialPortService";
 	public String strResponse = "";
 	/**
-	 * 判断是否保存
-	 */
-	public boolean isbaocun = false;
-	/**
 	 * 线路名称，保存线路的文件夹名称
 	 */
 	public String xlname;
