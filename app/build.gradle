@@ -10,7 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        ndk{
+        ndk {
             moduleName "libvlcjni"
             abiFilters "armeabi", "armeabi-v7a", "x86_64"
         }
@@ -25,6 +25,7 @@ android {
         jni.srcDirs = []//disable automatic ndk-build call
         jniLibs.srcDir "src/main/jnilibs"
     }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
 }
 
 dependencies {

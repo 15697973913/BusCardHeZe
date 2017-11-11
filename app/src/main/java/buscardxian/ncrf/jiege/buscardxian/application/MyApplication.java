@@ -46,7 +46,7 @@ public class MyApplication extends Application {
 	 *  true  视新 M350
 	 */
 	public static boolean BOOTTYPE=false;
-	public static int baudrate=9600;
+	public static int baudrate=19200;
 	public static String device;
 	public static float weight;
 	public static AppManager mAppManager;

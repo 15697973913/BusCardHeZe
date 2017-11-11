@@ -1,9 +1,11 @@
 package buscardxian.ncrf.jiege.buscardxian;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -66,6 +68,10 @@ public class MainActivity extends Activity {
     private static TextView mPaomadeng;
     @BindView(R.id.blankpart)
     LinearLayout mBlankpart;
+    @BindView(R.id.uplayout)
+    FrameLayout mUplayout;
+    @BindView(R.id.downlayout)
+    LinearLayout mDownlayout;
     private List<SiteMsg_Util> list1, list2;
     private MyAdapter adapter;
     private shangMyAdapter sadapter;
@@ -79,7 +85,7 @@ public class MainActivity extends Activity {
     /**
      * Log文件路径
      */
-    public static String LogFilePath=RootPath + File.separator + "Advert" + File.separator + "Log" + File.separator;
+    public static String LogFilePath = RootPath + File.separator + "Advert" + File.separator + "Log" + File.separator;
     public static File fwyyfile = new File(ConfigureFilePath + "fwyy.txt");
     public SharedPreferences sha;
     public boolean isOneStart = false;
@@ -176,13 +182,16 @@ public class MainActivity extends Activity {
         public void run() {
             mXllist.setVisibility(View.VISIBLE);
             mDzts.setVisibility(View.GONE);
+            mXllist.setBackgroundColor(Color.parseColor("#ffffff"));
+            mUplayout.setBackgroundColor(getResources().getColor(R.color.upblue));
+            mDownlayout.setBackgroundColor(getResources().getColor(R.color.upblue));
         }
     };
 
     // 设置到站
     public void setdaozhen(int index, int dlz, List<SiteMsg_Util> list, int sxx) {
         Log.v(TAG, "Mainindex:" + index);
-        String str = "";
+        String str;
         if (sxx == 1) {
             str = MyApplication.xxlist.get(index - 1).getStationName();
         } else {
@@ -194,6 +203,9 @@ public class MainActivity extends Activity {
             Log.v(TAG, "到站");
             mZhuangtai.setText("到站:");
             mZhanming.setText(str);
+            mXllist.setBackgroundColor(Color.parseColor("#ffffff"));
+            mUplayout.setBackgroundColor(getResources().getColor(R.color.zise));
+            mDownlayout.setBackgroundColor(getResources().getColor(R.color.zise));
             handler.removeCallbacks(r);
             handler.postDelayed(r, 15000);
             if (index <= list.size() / 2) {
@@ -212,7 +224,11 @@ public class MainActivity extends Activity {
             mXllist.setVisibility(View.GONE);
             mZhuangtai.setText("下一站:");
             mZhanming.setText(str);
-            handler.sendEmptyMessageDelayed(0x8181, 15000);
+            mXllist.setBackgroundColor(Color.parseColor("#ffffff"));
+            mUplayout.setBackgroundColor(getResources().getColor(R.color.zise));
+            mDownlayout.setBackgroundColor(getResources().getColor(R.color.zise));
+            handler.removeCallbacks(r);
+            handler.postDelayed(r, 15000);
             Log.v(TAG, "离站");
             Log.v(TAG, "list/2=" + list.size() / 2);
             if (index <= list.size() / 2) {
@@ -310,7 +326,7 @@ public class MainActivity extends Activity {
         MyApplication.mAppManager.addActivity(this);
         mPaomadeng = findViewById(R.id.paomadeng);
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,0, MyApplication.weight);
+                LinearLayout.LayoutParams.MATCH_PARENT, 0, MyApplication.weight);
         mBlankpart.setLayoutParams(param);
         createfile();// 创建文件夹
         //如果是第一次启动就从本地获取数据
@@ -329,6 +345,7 @@ public class MainActivity extends Activity {
         setpaomadeng();// 设置跑马灯
     }
 
+    @SuppressLint("HandlerLeak")
     public Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -342,15 +359,14 @@ public class MainActivity extends Activity {
             }
         }
 
-        // 设置线路信息
-        private void setxlmsg() {
-            mLineWord.setText(MyApplication.line_util.getLineWord());
-            mStationUpLast.setText(MyApplication.line_util.getStationUpLast());
-            mStationDownLast.setText(MyApplication.line_util.getStationDownLast());
-        }
-
-        ;
     };
+
+    // 设置线路信息
+    private void setxlmsg() {
+        mLineWord.setText(MyApplication.line_util.getLineWord());
+        mStationUpLast.setText(MyApplication.line_util.getStationUpLast());
+        mStationDownLast.setText(MyApplication.line_util.getStationDownLast());
+    }
 
     /**
      * 获取和保存当前屏幕的截图

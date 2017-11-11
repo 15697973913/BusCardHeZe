@@ -22,9 +22,10 @@
                     android:orientation="vertical" >
 
                     <FrameLayout
+                        android:id="@+id/uplayout"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_30"
-                        android:background="#26285E" >
+                        android:background="@color/upblue" >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -105,7 +106,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_0"
                         android:layout_weight="1"
-                        android:background="#DDDDDD"
+                        android:background="@color/blue1"
                         android:orientation="vertical"
                         android:visibility="gone" >
 
@@ -144,7 +145,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_0"
                         android:layout_weight="1"
-                        android:background="#DDDDDD" >
+                        android:background="#ffffff" >
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -185,16 +186,17 @@
                     </FrameLayout>
 
                     <LinearLayout
+                        android:id="@+id/downlayout"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_30"
-                        android:background="#26285E"
+                        android:background="@color/upblue"
                         android:orientation="horizontal" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left|bottom"
-                            android:text="heze_v1.1" />
+                            android:text="heze_v1.2" />
 
                         <LinearLayout
                             android:layout_width="match_parent"

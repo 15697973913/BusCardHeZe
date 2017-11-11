@@ -50,8 +50,8 @@ public class CopyFile {
 		// 复制安卓apk的assets目录下任意路径的单个文件到des文件夹，注意是否对des有写权限
 		AssetManager assetManager = MainActivity.context.getAssets();
 
-		InputStream in = null;
-		OutputStream out = null;
+		InputStream in;
+		OutputStream out;
 		try {
 			in = assetManager.open(filename);
 			String newFileName = des + "/" + filename;
@@ -63,10 +63,8 @@ public class CopyFile {
 				out.write(buffer, 0, read);
 			}
 			in.close();
-			in = null;
 			out.flush();
 			out.close();
-			out = null;
 		} catch (Exception e) {
 			e.printStackTrace();
 			isSuccess = false;

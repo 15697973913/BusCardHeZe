@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">菏泽站节牌</string>
+    <color name="upblue">#26285E</color>
+    <color name="blue1">#A5D9FF</color>
+    <color name="zise">#004EF9</color>
 </resources>

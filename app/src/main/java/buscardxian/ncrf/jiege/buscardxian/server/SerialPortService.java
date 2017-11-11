@@ -1,5 +1,6 @@
 package buscardxian.ncrf.jiege.buscardxian.server;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Environment;
@@ -173,6 +174,7 @@ public class SerialPortService extends Service {
 		return Integer.toHexString(yhzhi);
 	}
 
+	@SuppressLint("HandlerLeak")
 	Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
